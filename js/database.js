@@ -830,7 +830,7 @@ var foodMicronutrients = {
 };
 
 var FoodDBLoader = {
-    DATA_URL: 'https://fitpulse-2737d.web.app/food-database.json',
+    DATA_URL: 'https://caloriecoach-tracker.web.app/food-database.json',
     CACHE_KEY: 'caloriecoach-food-db-cache',
     CACHE_TS_KEY: 'caloriecoach-food-db-ts',
     MAX_AGE: 24 * 60 * 60 * 1000,
