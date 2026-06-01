@@ -717,7 +717,7 @@ var foodRecipes = {
 };
 
 var CustomFoodDB = {
-    STORAGE_KEY: 'fitpulse-custom-foods',
+    STORAGE_KEY: 'caloriecoach-custom-foods',
 
     getAll: function() {
         return JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]');
@@ -831,8 +831,8 @@ var foodMicronutrients = {
 
 var FoodDBLoader = {
     DATA_URL: 'https://fitpulse-2737d.web.app/food-database.json',
-    CACHE_KEY: 'fitpulse-food-db-cache',
-    CACHE_TS_KEY: 'fitpulse-food-db-ts',
+    CACHE_KEY: 'caloriecoach-food-db-cache',
+    CACHE_TS_KEY: 'caloriecoach-food-db-ts',
     MAX_AGE: 24 * 60 * 60 * 1000,
 
     init: function(callback) {
@@ -918,7 +918,7 @@ var FoodDBLoader = {
 };
 
 var ApiCache = {
-    STORAGE_KEY: 'fitpulse-api-cache',
+    STORAGE_KEY: 'caloriecoach-api-cache',
     MAX_AGE: 24 * 60 * 60 * 1000,
 
     get: function(query) {

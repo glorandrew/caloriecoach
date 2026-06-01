@@ -1,4 +1,4 @@
-# FitPulse 💪
+# CalorieCoach 💪
 
 **Fitness & Diet Tracker** — A single-page web app that calculates BMR/TDEE, generates personalized diet charts, tracks water intake, logs weight history, and creates shopping lists.
 

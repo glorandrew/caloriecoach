@@ -31,10 +31,10 @@ let currentTDEE = 0;
 let scheduleEditorOpen = false;
 let microsVisible = false;
 const backupKeys = [
-    'fitpulse-history', 'fitpulse-theme', 'fitpulse-food-prefs',
-    'fitpulse-macro-split', 'fitpulse-water', 'fitpulse-weight-logs',
-    'fitpulse-shopping-checks', 'fitpulse-custom-foods',
-    'fitpulse-meal-schedule', 'fitpulse-exercise', 'fitpulse-intake-logs'
+    'caloriecoach-history', 'caloriecoach-theme', 'caloriecoach-food-prefs',
+    'caloriecoach-macro-split', 'caloriecoach-water', 'caloriecoach-weight-logs',
+    'caloriecoach-shopping-checks', 'caloriecoach-custom-foods',
+    'caloriecoach-meal-schedule', 'caloriecoach-exercise', 'caloriecoach-intake-logs'
 ];
 
 function initSelectedFoods(count) {
@@ -101,14 +101,14 @@ function getHeightInCm() {
 
 // ====== Progress Tracking ======
 function saveToHistory(result) {
-    const history = JSON.parse(localStorage.getItem('fitpulse-history') || '[]');
+    const history = JSON.parse(localStorage.getItem('caloriecoach-history') || '[]');
     history.unshift(result);
     if (history.length > 20) history.pop();
-    localStorage.setItem('fitpulse-history', JSON.stringify(history));
+    localStorage.setItem('caloriecoach-history', JSON.stringify(history));
 }
 
 function loadHistory() {
-    return JSON.parse(localStorage.getItem('fitpulse-history') || '[]');
+    return JSON.parse(localStorage.getItem('caloriecoach-history') || '[]');
 }
 
 function renderHistory() {
@@ -157,11 +157,11 @@ function getMealConfig(count) {
 }
 
 function loadMealSchedule() {
-    try { return JSON.parse(localStorage.getItem('fitpulse-meal-schedule')); } catch (e) { return null; }
+    try { return JSON.parse(localStorage.getItem('caloriecoach-meal-schedule')); } catch (e) { return null; }
 }
 
 function saveMealSchedule(data) {
-    localStorage.setItem('fitpulse-meal-schedule', JSON.stringify(data));
+    localStorage.setItem('caloriecoach-meal-schedule', JSON.stringify(data));
 }
 
 function toggleScheduleEditor() {
@@ -647,7 +647,7 @@ function selectDietPlan(plan, evt) {
 function showFoodPreferences() {
     openModal('pref-modal', { label: 'Select food preferences' });
 
-    const saved = localStorage.getItem('fitpulse-food-prefs');
+    const saved = localStorage.getItem('caloriecoach-food-prefs');
     if (saved) {
         try { userFoodPreferences = JSON.parse(saved); } catch (e) { userFoodPreferences = {}; }
     }
@@ -752,7 +752,7 @@ function confirmFoodPreferences() {
         alert('Please select at least one food from Protein, Carbs, or Vegetables.');
         return;
     }
-    localStorage.setItem('fitpulse-food-prefs', JSON.stringify(userFoodPreferences));
+    localStorage.setItem('caloriecoach-food-prefs', JSON.stringify(userFoodPreferences));
     closeFoodPreferences();
     if (weeklyMode) {
         generateWeek();
@@ -1478,12 +1478,12 @@ function initWaterTracker(goalLiters) {
     tracker.style.display = 'block';
     const goalMl = Math.round(parseFloat(goalLiters || 2) * 1000);
     const today = new Date().toDateString();
-    const data = JSON.parse(localStorage.getItem('fitpulse-water') || '{}');
+    const data = JSON.parse(localStorage.getItem('caloriecoach-water') || '{}');
     if (data.date !== today) {
         data.date = today;
         data.logged = 0;
         data.goal = goalMl;
-        localStorage.setItem('fitpulse-water', JSON.stringify(data));
+        localStorage.setItem('caloriecoach-water', JSON.stringify(data));
     }
     if (data.goal !== goalMl) data.goal = goalMl;
     renderWaterTracker(data);
@@ -1491,7 +1491,7 @@ function initWaterTracker(goalLiters) {
 
 function renderWaterTracker(data) {
     if (!data) {
-        data = JSON.parse(localStorage.getItem('fitpulse-water') || '{}');
+        data = JSON.parse(localStorage.getItem('caloriecoach-water') || '{}');
     }
     const logged = data.logged || 0;
     const goal = data.goal || 2000;
@@ -1502,7 +1502,7 @@ function renderWaterTracker(data) {
 
 function addWater(ml) {
     const today = new Date().toDateString();
-    const data = JSON.parse(localStorage.getItem('fitpulse-water') || '{}');
+    const data = JSON.parse(localStorage.getItem('caloriecoach-water') || '{}');
     if (data.date !== today) {
         data.date = today;
         data.logged = 0;
@@ -1510,15 +1510,15 @@ function addWater(ml) {
     }
     data.logged = (data.logged || 0) + ml;
     if (data.logged > data.goal * 2) data.logged = data.goal * 2;
-    localStorage.setItem('fitpulse-water', JSON.stringify(data));
+    localStorage.setItem('caloriecoach-water', JSON.stringify(data));
     renderWaterTracker(data);
 }
 
 function resetWaterTracker() {
-    const data = JSON.parse(localStorage.getItem('fitpulse-water') || '{}');
+    const data = JSON.parse(localStorage.getItem('caloriecoach-water') || '{}');
     data.logged = 0;
     data.date = new Date().toDateString();
-    localStorage.setItem('fitpulse-water', JSON.stringify(data));
+    localStorage.setItem('caloriecoach-water', JSON.stringify(data));
     renderWaterTracker(data);
 }
 
@@ -1542,7 +1542,7 @@ function logExercise() {
         return;
     }
 
-    const allLogs = JSON.parse(localStorage.getItem('fitpulse-exercise') || '[]');
+    const allLogs = JSON.parse(localStorage.getItem('caloriecoach-exercise') || '[]');
     allLogs.push({
         date: new Date().toISOString(),
         type,
@@ -1550,7 +1550,7 @@ function logExercise() {
         calories
     });
     if (allLogs.length > 200) allLogs.splice(0, allLogs.length - 200);
-    localStorage.setItem('fitpulse-exercise', JSON.stringify(allLogs));
+    localStorage.setItem('caloriecoach-exercise', JSON.stringify(allLogs));
 
     document.getElementById('exercise-type').value = '';
     document.getElementById('exercise-duration').value = '';
@@ -1559,7 +1559,7 @@ function logExercise() {
 }
 
 function deleteExercise(index) {
-    const allLogs = JSON.parse(localStorage.getItem('fitpulse-exercise') || '[]');
+    const allLogs = JSON.parse(localStorage.getItem('caloriecoach-exercise') || '[]');
     const today = new Date().toDateString();
     const todaysLogs = allLogs.filter(e => new Date(e.date).toDateString() === today);
     if (index >= 0 && index < todaysLogs.length) {
@@ -1573,14 +1573,14 @@ function deleteExercise(index) {
         }
         if (removeIdx > -1) {
             allLogs.splice(removeIdx, 1);
-            localStorage.setItem('fitpulse-exercise', JSON.stringify(allLogs));
+            localStorage.setItem('caloriecoach-exercise', JSON.stringify(allLogs));
             renderExerciseLog();
         }
     }
 }
 
 function getTodaysExercise() {
-    const allLogs = JSON.parse(localStorage.getItem('fitpulse-exercise') || '[]');
+    const allLogs = JSON.parse(localStorage.getItem('caloriecoach-exercise') || '[]');
     const today = new Date().toISOString().slice(0, 10);
     return allLogs.filter(log => log.date === today);
 }
@@ -1640,7 +1640,7 @@ function initProgressDashboard(targetCal, targetPro, targetCarbs, targetFat) {
     const dashboard = document.getElementById('progress-dashboard');
     if (!dashboard) return;
     dashboard.style.display = 'block';
-    localStorage.setItem('fitpulse-last-target', targetCal);
+    localStorage.setItem('caloriecoach-last-target', targetCal);
     renderProgressChart();
 }
 
@@ -1662,7 +1662,7 @@ function logWeight() {
         setTimeout(() => { input.classList.remove('error'); }, 1500);
         return;
     }
-    const logs = JSON.parse(localStorage.getItem('fitpulse-weight-logs') || '[]');
+    const logs = JSON.parse(localStorage.getItem('caloriecoach-weight-logs') || '[]');
     const today = new Date().toDateString();
     let existingIdx = -1;
     for (let wi = 0; wi < logs.length; wi++) {
@@ -1679,7 +1679,7 @@ function logWeight() {
     }
     logs.sort((a, b) => new Date(a.date) - new Date(b.date));
     if (logs.length > 100) logs.splice(0, logs.length - 100);
-    localStorage.setItem('fitpulse-weight-logs', JSON.stringify(logs));
+    localStorage.setItem('caloriecoach-weight-logs', JSON.stringify(logs));
     input.value = '';
     renderWeightChart();
 }
@@ -1814,7 +1814,7 @@ function renderShoppingList() {
 
     const catOrder = ['🥩 Protein', '🍚 Carbs', '🥦 Vegetables', '🍎 Fruits', '🧀 Dairy', '🍽️ Other'];
     let html = '';
-    const savedChecks = JSON.parse(localStorage.getItem('fitpulse-shopping-checks') || '{}');
+    const savedChecks = JSON.parse(localStorage.getItem('caloriecoach-shopping-checks') || '{}');
     catOrder.forEach(cat => {
         if (!categorized[cat] || categorized[cat].length === 0) return;
         html += `<div class="shopping-list-category">${cat} <span class="shopping-cat-count">${categorized[cat].length}</span></div>`;
@@ -1885,14 +1885,14 @@ function closeShoppingList() {
 }
 
 function toggleShoppingCheck(key, el) {
-    const checks = JSON.parse(localStorage.getItem('fitpulse-shopping-checks') || '{}');
+    const checks = JSON.parse(localStorage.getItem('caloriecoach-shopping-checks') || '{}');
     checks[key] = el.checked;
-    localStorage.setItem('fitpulse-shopping-checks', JSON.stringify(checks));
+    localStorage.setItem('caloriecoach-shopping-checks', JSON.stringify(checks));
     el.closest('.shopping-list-item').classList.toggle('checked', el.checked);
 }
 
 function clearShoppingChecks() {
-    localStorage.setItem('fitpulse-shopping-checks', '{}');
+    localStorage.setItem('caloriecoach-shopping-checks', '{}');
     document.querySelectorAll('#shopping-list-items input[type="checkbox"]').forEach(cb => {
         cb.checked = false;
         cb.closest('.shopping-list-item').classList.remove('checked');
@@ -1905,7 +1905,7 @@ function exportPDF() {
     const style = document.querySelector('style').innerHTML;
     const fonts = document.querySelector('link[href*="fonts.googleapis.com"]') ? document.querySelector('link[href*="fonts.googleapis.com"]').outerHTML : '';
     const win = window.open('', '_blank');
-    win.document.write('<html><head><title>FitPulse - Diet Plan</title>');
+    win.document.write('<html><head><title>CalorieCoach - Diet Plan</title>');
     win.document.write(fonts);
     win.document.write(`<style>${style}</style>`);
     win.document.write(`<style>
@@ -1925,7 +1925,7 @@ function exportPDF() {
         .water-info .value { color: #00b4d8 !important; -webkit-text-fill-color: #00b4d8 !important; }
         </style></head><body>`);
     win.document.write(`<div style="text-align:center;margin-bottom:30px;border-bottom:2px solid #00b894;padding-bottom:20px;">
-        <h1 style="font-family: Outfit, sans-serif;font-size:28px;color:#00b894;">FitPulse Diet Plan</h1>
+        <h1 style="font-family: Outfit, sans-serif;font-size:28px;color:#00b894;">CalorieCoach Diet Plan</h1>
         <p style="color:#666;">Generated on ${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
         </div>`);
     win.document.write(printContents);
@@ -2000,7 +2000,7 @@ function exportBackup() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `fitpulse-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `caloriecoach-backup-${new Date().toISOString().slice(0, 10)}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -2056,7 +2056,7 @@ function copyShoppingList() {
             }
         }
     });
-    text += '\n━━━━━━━━━━━━━━━━━━\nGenerated by FitPulse';
+    text += '\n━━━━━━━━━━━━━━━━━━\nGenerated by CalorieCoach';
     copyToClipboard(text);
 }
 
@@ -2074,7 +2074,7 @@ function printRecipe() {
     w.document.write('@media print{body{padding:20px}}</style></head><body>');
     w.document.write(`<h1>${title.replace('📖 ', '')}</h1>`);
     w.document.write(`<div id="print-recipe-content">${content.innerHTML}</div>`);
-    w.document.write('<p style="margin-top:40px;font-size:12px;color:#999;">Generated by FitPulse</p>');
+    w.document.write('<p style="margin-top:40px;font-size:12px;color:#999;">Generated by CalorieCoach</p>');
     w.document.write('</body></html>');
     w.document.close();
     setTimeout(() => { w.print(); }, 500);
@@ -2137,7 +2137,7 @@ function logIntake() {
         alert('Please fill in all intake fields.');
         return;
     }
-    const logs = JSON.parse(localStorage.getItem('fitpulse-intake-logs') || '[]');
+    const logs = JSON.parse(localStorage.getItem('caloriecoach-intake-logs') || '[]');
     const today = new Date().toISOString().slice(0, 10);
     const existingIdx = logs.findIndex(l => l.date === today);
     const entry = { date: today, calories: cal, protein: pro, carbs: carbs, fat: fat, timestamp: Date.now() };
@@ -2146,7 +2146,7 @@ function logIntake() {
     } else {
         logs.push(entry);
     }
-    localStorage.setItem('fitpulse-intake-logs', JSON.stringify(logs));
+    localStorage.setItem('caloriecoach-intake-logs', JSON.stringify(logs));
     renderIntakeLogList();
     renderProgressChart();
     document.getElementById('intake-calories').value = '';
@@ -2156,7 +2156,7 @@ function logIntake() {
 }
 
 function renderIntakeLogList() {
-    const logs = JSON.parse(localStorage.getItem('fitpulse-intake-logs') || '[]');
+    const logs = JSON.parse(localStorage.getItem('caloriecoach-intake-logs') || '[]');
     const container = document.getElementById('intake-log-list');
     if (!container) return;
     const recent = logs.slice(-7).reverse();
@@ -2177,7 +2177,7 @@ function getCssVar(name, fallback) {
 function renderProgressChart() {
     const canvas = document.getElementById('progress-chart');
     if (!canvas) return;
-    const logs = JSON.parse(localStorage.getItem('fitpulse-intake-logs') || '[]');
+    const logs = JSON.parse(localStorage.getItem('caloriecoach-intake-logs') || '[]');
     if (logs.length === 0) {
         document.getElementById('progress-chart-empty').style.display = 'block';
         canvas.style.display = 'none';
@@ -2193,7 +2193,7 @@ function renderProgressChart() {
     ctx.scale(dpr, dpr);
     ctx.clearRect(0, 0, dispW, dispH);
 
-    const targetCal = parseInt(localStorage.getItem('fitpulse-last-target')) || 2000;
+    const targetCal = parseInt(localStorage.getItem('caloriecoach-last-target')) || 2000;
     const targetPro = Math.round(targetCal * 0.3 / 4);
     const targetCarbs = Math.round(targetCal * 0.4 / 4);
     const targetFat = Math.round(targetCal * 0.3 / 9);
@@ -2278,7 +2278,7 @@ function copySummary(e) {
     const water = document.getElementById('water-value').textContent;
     const goalText = document.getElementById('goal-text').textContent;
     const dietText = document.getElementById('diet-text').textContent;
-    const text = `📋 FitPulse Summary\n${'─'.repeat(30)}\n\n` +
+    const text = `📋 CalorieCoach Summary\n${'─'.repeat(30)}\n\n` +
         `Goal: ${goalText} · ${dietText}\n` +
         `🔥 BMR: ${bmr} kcal\n` +
         `⚡ TDEE: ${tdee} kcal\n` +
@@ -2289,7 +2289,7 @@ function copySummary(e) {
         `🍚 Carbs: ${carbs}\n` +
         `🥑 Fat: ${fat}\n` +
         `\n💧 Water: ${water}\n` +
-        `\n${'─'.repeat(30)}\nGenerated by FitPulse`;
+        `\n${'─'.repeat(30)}\nGenerated by CalorieCoach`;
     copyToClipboard(text);
 }
 

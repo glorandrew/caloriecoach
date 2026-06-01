@@ -2,7 +2,7 @@ function renderWeightChart() {
     const canvas = document.getElementById('weight-chart');
     const emptyEl = document.getElementById('weight-chart-empty');
     if (!canvas) return;
-    const logs = JSON.parse(localStorage.getItem('fitpulse-weight-logs') || '[]');
+    const logs = JSON.parse(localStorage.getItem('caloriecoach-weight-logs') || '[]');
     if (logs.length < 2) {
         canvas.style.display = 'none';
         if (emptyEl) emptyEl.style.display = 'flex';

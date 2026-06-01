@@ -1,3 +1,25 @@
+// ====== localStorage Migration ======
+(function() {
+    var oldPrefix = 'fitpulse-';
+    var newPrefix = 'caloriecoach-';
+    var migrated = localStorage.getItem(newPrefix + 'migrated');
+    if (migrated) return;
+    var keys = [
+        'history', 'theme', 'food-prefs', 'macro-split', 'water',
+        'weight-logs', 'shopping-checks', 'custom-foods', 'api-cache',
+        'meal-schedule', 'exercise', 'intake-logs', 'last-target',
+        'food-db-cache', 'food-db-ts'
+    ];
+    for (var i = 0; i < keys.length; i++) {
+        var oldVal = localStorage.getItem(oldPrefix + keys[i]);
+        if (oldVal !== null) {
+            localStorage.setItem(newPrefix + keys[i], oldVal);
+            localStorage.removeItem(oldPrefix + keys[i]);
+        }
+    }
+    localStorage.setItem(newPrefix + 'migrated', '1');
+})();
+
 // ====== Focus Trap & A11y Utilities ======
 let lastFocusedEl = null;
 const activeModalIds = [];
@@ -75,7 +97,7 @@ function closeModal(id) {
     const themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) return;
 
-    const savedTheme = localStorage.getItem('fitpulse-theme') || 'dark';
+    const savedTheme = localStorage.getItem('caloriecoach-theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
     themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
     themeToggle.setAttribute('aria-label', `Toggle ${savedTheme === 'dark' ? 'light' : 'dark'} theme`);
@@ -84,7 +106,7 @@ function closeModal(id) {
         const current = document.documentElement.getAttribute('data-theme');
         const next = current === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('fitpulse-theme', next);
+        localStorage.setItem('caloriecoach-theme', next);
         themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
         themeToggle.setAttribute('aria-label', `Toggle ${next === 'dark' ? 'light' : 'dark'} theme`);
     });

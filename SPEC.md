@@ -1,8 +1,8 @@
-# FitPulse - Fitness & Diet Tracker Specification
+# CalorieCoach - Fitness & Diet Tracker Specification
 
 ## 1. Project Overview
 
-- **Project Name**: FitPulse - Fitness & Diet Tracker
+- **Project Name**: CalorieCoach - Fitness & Diet Tracker
 - **Project Type**: Single-page web application
 - **Core Functionality**: Calculate BMR, TDEE, generate personalized diet charts, track water intake, log weight history, generate shopping lists
 - **Target Users**: Fitness enthusiasts looking for dietary guidance
@@ -13,7 +13,7 @@
 ### Layout Structure
 
 **Header**
-- Logo/Brand name on left (gradient "FitPulse" with 💪 icon)
+- Logo/Brand name on left (gradient "CalorieCoach" with 💪 icon)
 - Navigation links on right (Home, Calculator, About)
 - Theme toggle button (🌙/☀️)
 - Hamburger menu for mobile (animated X on open)
@@ -41,7 +41,7 @@
 - Water intake display card
 - Water tracker (glass buttons, progress bar, daily reset)
 - Export bar (Print, Copy Summary, Shopping List, PDF)
-- Diet plan choice (FitPulse Default / Customize My Own)
+- Diet plan choice (CalorieCoach Default / Customize My Own)
 - Food selection panel (meal tabs, search, category filters, food grid, selected foods)
 - Diet chart table (meal rows with per-meal targets, daily total row)
 
@@ -176,7 +176,7 @@
 6. Custom Macro Split (collapsible form)
    - Protein % / Carbs % / Fat % inputs (5-80 range)
    - Auto-normalizes to sum 100% on input
-   - Stores in `fitpulse-macro-split` localStorage key
+   - Stores in `caloriecoach-macro-split` localStorage key
 
 7. Diet Preference (radio)
    - Vegetarian
@@ -212,7 +212,7 @@
 
 **Diet Chart Generation**
 
-**FitPulse Default Plan** (via food preferences)
+**CalorieCoach Default Plan** (via food preferences)
 - Food Preference Modal shows 6 categories from foodDatabaseDetailed:
   - Protein (12 items: Chicken Breast, Salmon, Eggs, Paneer, etc.)
   - Carbs (12 items: Brown Rice, Quinoa, Oats, etc.)
@@ -220,7 +220,7 @@
   - Fruits (12 items: Apple, Banana, Orange, etc.)
   - Dairy (10 items: Milk, Greek Yogurt, Whey Protein, etc.)
   - Fats (12 items: Avocado, Almonds, Olive Oil, etc.)
-- User selects preferred foods per category; selections saved to `fitpulse-food-prefs`
+- User selects preferred foods per category; selections saved to `caloriecoach-food-prefs`
 - At least one selection from Protein, Carbs, or Vegetables required
 - "Skip & Use Default" falls back to pre-defined meal plans (foodDatabase)
 
@@ -268,7 +268,7 @@
 ### Additional Features
 
 **History Tracking**
-- Stores last 20 calculations in localStorage (`fitpulse-history`)
+- Stores last 20 calculations in localStorage (`caloriecoach-history`)
 - Displays date, BMR, TDEE, target, BMI, goal
 - Trend arrows (↑↓→) comparing consecutive entries
 - Animates counters on display
@@ -279,7 +279,7 @@
 - Daily goal from weight/activity calculation
 - Auto-resets per day (checks date on init)
 - Capped at 2x daily goal
-- Persisted in `fitpulse-water` localStorage
+- Persisted in `caloriecoach-water` localStorage
 
 **Weight Tracking Chart**
 - Canvas-based line chart (700x250px, auto-width via CSS)
@@ -290,7 +290,7 @@
 - Daily log (updates existing entry for same day)
 - Shows "Log your weight to see your progress chart" when < 2 entries
 - Max 100 entries, sorted by date
-- Persisted in `fitpulse-weight-logs` localStorage
+- Persisted in `caloriecoach-weight-logs` localStorage
 
 **Shopping List Generator**
 - Parses diet chart table rows (food-list li elements)
@@ -299,7 +299,7 @@
 - Categorizes into: Protein, Carbs, Vegetables, Fruits, Dairy, Other
 - Checkable items with strikethrough on check
 - "Clear Checks" button resets all checkboxes
-- Persists checked state in `fitpulse-shopping-checks` localStorage
+- Persists checked state in `caloriecoach-shopping-checks` localStorage
 - Shows in modal with overlay
 
 **Export to PDF**
@@ -317,7 +317,7 @@
 
 **Theme Toggle**
 - Dark/light theme switch (🌙/☀️ button in header)
-- Persisted in `fitpulse-theme` localStorage
+- Persisted in `caloriecoach-theme` localStorage
 - Updates `data-theme` attribute on `<html>`
 - Full CSS variable swap
 
@@ -331,14 +331,14 @@
 **API Integration**
 - Open Food Facts search API
 - Search triggered on input ≥ 2 characters
-- Cached in localStorage (`fitpulse-api-cache`) for 24 hours
+- Cached in localStorage (`caloriecoach-api-cache`) for 24 hours
 - Max 50 cache entries, keeps 40 newest
 - Results shown as food grid items with "Open Food Facts" badge
 - Can be selected and added to meals with quantity
 
 **Custom Food Database**
 - Add custom foods via form (name, calories per 100g, macros)
-- Persisted in `fitpulse-custom-foods` localStorage
+- Persisted in `caloriecoach-custom-foods` localStorage
 - Auto-generated unique IDs (`custom_` + timestamp + random)
 - Displayed in "Custom" category filter
 - Delete button with inline confirmation
@@ -364,15 +364,15 @@
 - Weight history max 100 entries
 
 ### Data Persistence (localStorage keys)
-- `fitpulse-history` — calculation history (max 20 entries)
-- `fitpulse-theme` — dark/light theme preference
-- `fitpulse-food-prefs` — selected food names per category
-- `fitpulse-macro-split` — custom protein/carbs/fat percentages
-- `fitpulse-water` — daily water intake log (date, logged, goal)
-- `fitpulse-weight-logs` — weight tracking entries (max 100)
-- `fitpulse-shopping-checks` — checked state of shopping list items
-- `fitpulse-custom-foods` — user-added custom foods
-- `fitpulse-api-cache` — Open Food Facts API response cache (24hr TTL)
+- `caloriecoach-history` — calculation history (max 20 entries)
+- `caloriecoach-theme` — dark/light theme preference
+- `caloriecoach-food-prefs` — selected food names per category
+- `caloriecoach-macro-split` — custom protein/carbs/fat percentages
+- `caloriecoach-water` — daily water intake log (date, logged, goal)
+- `caloriecoach-weight-logs` — weight tracking entries (max 100)
+- `caloriecoach-shopping-checks` — checked state of shopping list items
+- `caloriecoach-custom-foods` — user-added custom foods
+- `caloriecoach-api-cache` — Open Food Facts API response cache (24hr TTL)
 
 ### File Structure
 ```
