@@ -34,8 +34,8 @@
 ## Getting Started
 
 ```bash
-git clone https://github.com/glorandrew/fitpulse.git
-cd fitpulse
+git clone https://github.com/glorandrew/caloriecoach.git
+cd caloriecoach
 # Serve with any static file server, e.g.:
 npx serve .
 ```
