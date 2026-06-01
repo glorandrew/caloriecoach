@@ -272,7 +272,12 @@ var foodDatabaseDetailed = {
         { name: "Sardines", calories: 208, protein: 25, carbs: 0, fat: 11, serving: "100g canned", type: "nonveg" },
         { name: "Cod", calories: 82, protein: 18, carbs: 0, fat: 0.7, serving: "100g", type: "nonveg" },
         { name: "Pork Chop", calories: 231, protein: 25, carbs: 0, fat: 14, serving: "100g lean", type: "nonveg" },
-        { name: "Venison", calories: 158, protein: 30, carbs: 0, fat: 3.4, serving: "100g", type: "nonveg" }
+        { name: "Venison", calories: 158, protein: 30, carbs: 0, fat: 3.4, serving: "100g", type: "nonveg" },
+        { name: "Beef Liver", calories: 135, protein: 21, carbs: 3.9, fat: 3.6, serving: "100g", type: "nonveg" },
+        { name: "Rabbit", calories: 173, protein: 33, carbs: 0, fat: 3.5, serving: "100g", type: "nonveg" },
+        { name: "Bison", calories: 179, protein: 28, carbs: 0, fat: 7, serving: "100g", type: "nonveg" },
+        { name: "Anchovies", calories: 131, protein: 20, carbs: 0, fat: 4.8, serving: "100g canned", type: "nonveg" },
+        { name: "Seitan", calories: 147, protein: 24, carbs: 6, fat: 2.1, serving: "100g", type: "veg" }
     ],
     carbs: [
         { name: "Brown Rice", calories: 111, protein: 2.6, carbs: 23, fat: 0.9, serving: "100g cooked" },
@@ -292,7 +297,13 @@ var foodDatabaseDetailed = {
         { name: "Millet", calories: 119, protein: 3.5, carbs: 24, fat: 1, serving: "100g cooked" },
         { name: "Buckwheat", calories: 110, protein: 4.1, carbs: 23, fat: 0.8, serving: "100g cooked" },
         { name: "Yam", calories: 118, protein: 1.5, carbs: 28, fat: 0.1, serving: "100g" },
-        { name: "Corn Tortilla", calories: 218, protein: 5.7, carbs: 44, fat: 2.9, serving: "100g (2 tortillas)" }
+        { name: "Corn Tortilla", calories: 218, protein: 5.7, carbs: 44, fat: 2.9, serving: "100g (2 tortillas)" },
+        { name: "Sourdough Bread", calories: 266, protein: 9, carbs: 51, fat: 3, serving: "100g" },
+        { name: "Jasmine Rice", calories: 129, protein: 2.7, carbs: 28, fat: 0.3, serving: "100g cooked" },
+        { name: "Black Rice", calories: 110, protein: 2.5, carbs: 23, fat: 0.8, serving: "100g cooked" },
+        { name: "Amaranth", calories: 102, protein: 3.8, carbs: 19, fat: 1.6, serving: "100g cooked" },
+        { name: "Teff", calories: 101, protein: 3.9, carbs: 20, fat: 0.7, serving: "100g cooked" },
+        { name: "Rice Cakes", calories: 231, protein: 5, carbs: 50, fat: 0.5, serving: "100g (4 cakes)" }
     ],
     fats: [
         { name: "Avocado", calories: 160, protein: 2, carbs: 8.5, fat: 14.7, serving: "100g" },
@@ -312,7 +323,12 @@ var foodDatabaseDetailed = {
         { name: "Pistachios", calories: 560, protein: 20, carbs: 27, fat: 45, serving: "100g shelled" },
         { name: "Hemp Seeds", calories: 553, protein: 32, carbs: 8.7, fat: 49, serving: "100g" },
         { name: "Pumpkin Seeds", calories: 559, protein: 30, carbs: 11, fat: 49, serving: "100g" },
-        { name: "Tahini", calories: 595, protein: 17, carbs: 21, fat: 53, serving: "100g" }
+        { name: "Tahini", calories: 595, protein: 17, carbs: 21, fat: 53, serving: "100g" },
+        { name: "Sesame Oil", calories: 884, protein: 0, carbs: 0, fat: 100, serving: "100ml" },
+        { name: "Avocado Oil", calories: 884, protein: 0, carbs: 0, fat: 100, serving: "100ml" },
+        { name: "Brazil Nuts", calories: 659, protein: 14, carbs: 12, fat: 67, serving: "100g" },
+        { name: "Pine Nuts", calories: 673, protein: 14, carbs: 13, fat: 68, serving: "100g" },
+        { name: "Coconut Flesh", calories: 354, protein: 3.3, carbs: 15, fat: 33, serving: "100g" }
     ],
     vegetables: [
         { name: "Broccoli", calories: 34, protein: 2.8, carbs: 7, fat: 0.4, serving: "100g" },
@@ -328,7 +344,13 @@ var foodDatabaseDetailed = {
         { name: "Mushrooms", calories: 22, protein: 3.1, carbs: 3.3, fat: 0.3, serving: "100g" },
         { name: "Zucchini", calories: 17, protein: 1.2, carbs: 3.1, fat: 0.3, serving: "100g" },
         { name: "Cabbage", calories: 25, protein: 1.3, carbs: 6, fat: 0.1, serving: "100g" },
-        { name: "Lettuce", calories: 15, protein: 1.4, carbs: 2.9, fat: 0.2, serving: "100g" }
+        { name: "Lettuce", calories: 15, protein: 1.4, carbs: 2.9, fat: 0.2, serving: "100g" },
+        { name: "Asparagus", calories: 20, protein: 2.2, carbs: 3.9, fat: 0.1, serving: "100g" },
+        { name: "Beetroot", calories: 43, protein: 1.6, carbs: 10, fat: 0.2, serving: "100g" },
+        { name: "Celery", calories: 16, protein: 0.7, carbs: 3, fat: 0.2, serving: "100g" },
+        { name: "Kale", calories: 49, protein: 4.3, carbs: 8.8, fat: 0.9, serving: "100g" },
+        { name: "Radish", calories: 16, protein: 0.7, carbs: 3.4, fat: 0.1, serving: "100g" },
+        { name: "Eggplant", calories: 25, protein: 1, carbs: 6, fat: 0.2, serving: "100g" }
     ],
     fruits: [
         { name: "Apple", calories: 52, protein: 0.3, carbs: 14, fat: 0.2, serving: "1 medium (182g)" },
@@ -342,7 +364,12 @@ var foodDatabaseDetailed = {
         { name: "Papaya", calories: 43, protein: 0.5, carbs: 11, fat: 0.3, serving: "100g" },
         { name: "Pineapple", calories: 50, protein: 0.5, carbs: 13, fat: 0.1, serving: "100g" },
         { name: "Pomegranate", calories: 83, protein: 1.7, carbs: 19, fat: 1.2, serving: "100g" },
-        { name: "Guava", calories: 68, protein: 2.6, carbs: 14, fat: 1, serving: "100g" }
+        { name: "Guava", calories: 68, protein: 2.6, carbs: 14, fat: 1, serving: "100g" },
+        { name: "Kiwi", calories: 61, protein: 1.1, carbs: 15, fat: 0.5, serving: "100g" },
+        { name: "Cherries", calories: 50, protein: 1, carbs: 12, fat: 0.3, serving: "100g" },
+        { name: "Pear", calories: 57, protein: 0.4, carbs: 15, fat: 0.1, serving: "100g" },
+        { name: "Raspberries", calories: 52, protein: 1.2, carbs: 12, fat: 0.7, serving: "100g" },
+        { name: "Grapefruit", calories: 42, protein: 0.8, carbs: 11, fat: 0.1, serving: "100g" }
     ],
     dairy: [
         { name: "Milk (Whole)", calories: 61, protein: 3.2, carbs: 4.8, fat: 3.3, serving: "100ml" },
@@ -354,7 +381,10 @@ var foodDatabaseDetailed = {
         { name: "Butter", calories: 717, protein: 0.9, carbs: 0.1, fat: 81, serving: "100g" },
         { name: "Cream", calories: 340, protein: 2.1, carbs: 2.8, fat: 36, serving: "100ml" },
         { name: "Ice Cream", calories: 207, protein: 3.5, carbs: 24, fat: 11, serving: "100g" },
-        { name: "Whey Protein", calories: 373, protein: 80, carbs: 7, fat: 4, serving: "100g" }
+        { name: "Whey Protein", calories: 373, protein: 80, carbs: 7, fat: 4, serving: "100g" },
+        { name: "Parmesan", calories: 431, protein: 38, carbs: 4, fat: 29, serving: "100g" },
+        { name: "Feta", calories: 264, protein: 14, carbs: 4, fat: 21, serving: "100g" },
+        { name: "Ricotta", calories: 174, protein: 11, carbs: 3, fat: 13, serving: "100g" }
     ]
 };
 
@@ -713,6 +743,46 @@ var foodRecipes = {
         ingredients: ["Fresh spinach 200g", "Garlic 2 cloves", "Olive oil 1 tbsp", "Salt to taste", "Lemon juice"],
         instructions: "Heat olive oil in a pan. Add minced garlic and sauté 30 seconds. Add spinach and cook 2-3 minutes until wilted. Season with salt and squeeze lemon juice on top.",
         prepTime: "3 min", cookTime: "5 min", difficulty: "Easy", servings: 2
+    },
+    "Beef Liver": {
+        ingredients: ["Beef liver 200g", "Butter 1 tbsp", "Onion 1 sliced", "Salt and pepper", "Fresh parsley"],
+        instructions: "Slice liver into thin pieces. Soak in milk for 30 minutes to reduce bitterness. Pat dry and season with salt and pepper. Melt butter in a pan, add onions and cook until soft. Add liver and cook 3-4 minutes per side. Garnish with parsley.",
+        prepTime: "35 min", cookTime: "8 min", difficulty: "Medium", servings: 2
+    },
+    "Seitan": {
+        ingredients: ["Seitan 200g", "Soy sauce 2 tbsp", "Sesame oil 1 tsp", "Garlic 2 cloves minced", "Ginger 1 tsp grated"],
+        instructions: "Slice seitan into bite-sized pieces. Heat sesame oil in a wok or pan. Add garlic and ginger, stir for 30 seconds. Add seitan and soy sauce. Stir-fry 5-7 minutes until golden and heated through.",
+        prepTime: "5 min", cookTime: "8 min", difficulty: "Easy", servings: 2
+    },
+    "Sourdough Bread": {
+        ingredients: ["Sourdough bread 2 slices", "Butter or olive oil"],
+        instructions: "Toast sourdough bread slices until golden and crispy. Spread with butter or drizzle with olive oil. Serve warm as a side or base for toppings.",
+        prepTime: "1 min", cookTime: "3 min", difficulty: "Easy", servings: 1
+    },
+    "Asparagus": {
+        ingredients: ["Asparagus 200g", "Olive oil 1 tbsp", "Salt and pepper", "Lemon juice", "Parmesan shavings"],
+        instructions: "Snap off woody ends of asparagus. Toss with olive oil, salt, and pepper. Grill or roast at 200°C for 10-12 minutes until tender. Squeeze lemon juice over and top with parmesan shavings.",
+        prepTime: "3 min", cookTime: "12 min", difficulty: "Easy", servings: 2
+    },
+    "Kale": {
+        ingredients: ["Kale 200g", "Olive oil 1 tbsp", "Garlic 2 cloves", "Salt and pepper", "Lemon juice"],
+        instructions: "Remove kale leaves from stems and chop. Heat olive oil in a pan, add minced garlic and sauté 30 seconds. Add kale and cook 5-7 minutes, stirring occasionally, until wilted. Season with salt, pepper, and lemon juice.",
+        prepTime: "5 min", cookTime: "7 min", difficulty: "Easy", servings: 2
+    },
+    "Kiwi": {
+        ingredients: ["Kiwi 2", "Honey 1 tsp", "Greek yogurt 1/2 cup"],
+        instructions: "Peel kiwis and slice into rounds. Arrange on a plate or bowl. Serve with Greek yogurt and a drizzle of honey.",
+        prepTime: "3 min", cookTime: "0 min", difficulty: "Easy", servings: 1
+    },
+    "Parmesan": {
+        ingredients: ["Parmesan cheese 50g"],
+        instructions: "Grate parmesan finely. Use as a topping for pasta, salads, soups, or roasted vegetables. Best served fresh at room temperature.",
+        prepTime: "2 min", cookTime: "0 min", difficulty: "Easy", servings: 4
+    },
+    "Feta": {
+        ingredients: ["Feta cheese 100g", "Olive oil 1 tbsp", "Oregano 1 tsp", "Black pepper"],
+        instructions: "Crumble feta cheese into a bowl. Drizzle with olive oil and sprinkle with oregano and black pepper. Serve with crusty bread, salads, or as a topping.",
+        prepTime: "2 min", cookTime: "0 min", difficulty: "Easy", servings: 2
     }
 };
 
@@ -826,7 +896,37 @@ var foodMicronutrients = {
     "Muesli": { fiber: 7.5, iron: 3.5, calcium: 90, vitC: 0, vitA: 0 },
     "Butter": { fiber: 0, iron: 0, calcium: 24, vitC: 0, vitA: 684 },
     "Cream": { fiber: 0, iron: 0.1, calcium: 80, vitC: 0, vitA: 260 },
-    "Ice Cream": { fiber: 0, iron: 0.1, calcium: 128, vitC: 0, vitA: 118 }
+    "Ice Cream": { fiber: 0, iron: 0.1, calcium: 128, vitC: 0, vitA: 118 },
+    "Beef Liver": { fiber: 0, iron: 4.9, calcium: 6, vitC: 1.3, vitA: 4968 },
+    "Rabbit": { fiber: 0, iron: 4.8, calcium: 21, vitC: 0, vitA: 0 },
+    "Bison": { fiber: 0, iron: 3.4, calcium: 10, vitC: 0, vitA: 0 },
+    "Anchovies": { fiber: 0, iron: 3.3, calcium: 147, vitC: 0, vitA: 10 },
+    "Seitan": { fiber: 1.2, iron: 2.1, calcium: 88, vitC: 0, vitA: 0 },
+    "Sourdough Bread": { fiber: 3.6, iron: 2.5, calcium: 45, vitC: 0, vitA: 0 },
+    "Jasmine Rice": { fiber: 0.3, iron: 0.1, calcium: 8, vitC: 0, vitA: 0 },
+    "Black Rice": { fiber: 2.2, iron: 1.1, calcium: 12, vitC: 0, vitA: 0 },
+    "Amaranth": { fiber: 2.1, iron: 2.1, calcium: 47, vitC: 0, vitA: 0 },
+    "Teff": { fiber: 3, iron: 2.6, calcium: 49, vitC: 0, vitA: 0 },
+    "Rice Cakes": { fiber: 1.5, iron: 0.5, calcium: 4, vitC: 0, vitA: 0 },
+    "Sesame Oil": { fiber: 0, iron: 0, calcium: 0, vitC: 0, vitA: 0 },
+    "Avocado Oil": { fiber: 0, iron: 0, calcium: 0, vitC: 0, vitA: 0 },
+    "Brazil Nuts": { fiber: 7.5, iron: 2.4, calcium: 160, vitC: 0.7, vitA: 0 },
+    "Pine Nuts": { fiber: 3.7, iron: 5.5, calcium: 16, vitC: 0.8, vitA: 1 },
+    "Coconut Flesh": { fiber: 9, iron: 2.4, calcium: 14, vitC: 3.3, vitA: 0 },
+    "Asparagus": { fiber: 2.1, iron: 2.1, calcium: 24, vitC: 5.6, vitA: 38 },
+    "Beetroot": { fiber: 2.8, iron: 0.8, calcium: 16, vitC: 4.9, vitA: 2 },
+    "Celery": { fiber: 1.6, iron: 0.2, calcium: 40, vitC: 3.1, vitA: 22 },
+    "Kale": { fiber: 4.1, iron: 1.6, calcium: 150, vitC: 93.4, vitA: 481 },
+    "Radish": { fiber: 1.6, iron: 0.3, calcium: 25, vitC: 14.8, vitA: 0 },
+    "Eggplant": { fiber: 3, iron: 0.2, calcium: 9, vitC: 2.2, vitA: 1 },
+    "Kiwi": { fiber: 3, iron: 0.3, calcium: 34, vitC: 92.7, vitA: 4 },
+    "Cherries": { fiber: 2.1, iron: 0.4, calcium: 13, vitC: 7, vitA: 3 },
+    "Pear": { fiber: 3.1, iron: 0.2, calcium: 9, vitC: 4.3, vitA: 1 },
+    "Raspberries": { fiber: 6.5, iron: 0.7, calcium: 25, vitC: 26.2, vitA: 2 },
+    "Grapefruit": { fiber: 1.6, iron: 0.1, calcium: 22, vitC: 31.2, vitA: 58 },
+    "Parmesan": { fiber: 0, iron: 0.2, calcium: 853, vitC: 0, vitA: 97 },
+    "Feta": { fiber: 0, iron: 0.2, calcium: 493, vitC: 0, vitA: 84 },
+    "Ricotta": { fiber: 0, iron: 0.3, calcium: 206, vitC: 0, vitA: 105 }
 };
 
 var FoodDBLoader = {
