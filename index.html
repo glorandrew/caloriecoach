@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitPulse - Fitness & Diet Tracker</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+    <a href="#calculator" class="skip-link">Skip to calculator</a>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">💪</div>
+                    FitPulse
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="#home">Home</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#about">About</a>
+    </div>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Your Personal<br><span>Fitness Journey</span> Starts Here</h1>
+                    <p>Calculate your BMR, TDEE, and get a customized diet chart tailored to your fitness goals. Track your nutrition with precision.</p>
+                    <a href="#calculator" class="btn btn-primary">
+                        <span>Start Now</span>
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="floating-shapes">
+                            <div class="shape shape-1"></div>
+                            <div class="shape shape-2"></div>
+                            <div class="shape shape-3"></div>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">BMR</div>
+                                <div class="stat-label">Basal Metabolic Rate</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">TDEE</div>
+                                <div class="stat-label">Daily Calories</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">Meals Daily</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">100%</div>
+                                <div class="stat-label">Personalized</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <div class="section-header">
+                <h2>Calculate Your Metrics</h2>
+                <p>Enter your details below to get personalized diet recommendations based on your body metrics and fitness goals.</p>
+            </div>
+
+            <div class="calculator-grid">
+                <div class="form-container">
+                    <div class="form-section" style="margin-bottom: 20px;">
+                        <div class="form-title">
+                            <div class="form-title-icon">👤</div>
+                            Personal Information
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name">
+                            <div class="error-message" id="name-error">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age (years)</label>
+                            <input type="number" id="age" class="form-control" placeholder="Enter your age" min="15" max="100">
+                            <div class="error-message" id="age-error">Please enter a valid age between 15-100</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label for="male">Male</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label for="female">Female</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="other" name="gender" value="other">
+                                    <label for="other">Other</label>
+                                </div>
+                            </div>
+                            <div class="error-message" id="gender-error">Please select your gender</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-title">
+                            <div class="form-title-icon">📊</div>
+                            Body Metrics
+                        </div>
+                        <div class="form-group">
+                            <label>Weight</label>
+                            <div class="input-with-unit">
+                                <input type="number" id="weight" class="form-control" placeholder="Enter weight" min="30" max="300">
+                                <button type="button" class="unit-toggle-btn" id="weight-unit">kg</button>
+                            </div>
+                            <div class="error-message" id="weight-error">Please enter a valid weight</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Height</label>
+                            <div class="input-with-unit">
+                                <input type="number" id="height" class="form-control" placeholder="Enter height" min="100" max="250">
+                                <button type="button" class="unit-toggle-btn" id="height-unit">cm</button>
+                            </div>
+                            <div class="error-message" id="height-error">Please enter a valid height</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="activity">Activity Level</label>
+                            <select id="activity" class="form-control">
+                                <option value="">Select activity level</option>
+                                <option value="1.2">Sedentary (little or no exercise)</option>
+                                <option value="1.375">Lightly Active (1-3 days/week)</option>
+                                <option value="1.55">Moderately Active (3-5 days/week)</option>
+                                <option value="1.725">Very Active (6-7 days/week)</option>
+                                <option value="1.9">Extra Active (very hard exercise)</option>
+                            </select>
+                            <div class="error-message" id="activity-error">Please select your activity level</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="goal">Fitness Goal</label>
+                            <select id="goal" class="form-control">
+                                <option value="">Select your goal</option>
+                                <option value="lose">Lose Weight (-500 cal)</option>
+                                <option value="maintain">Maintain Weight</option>
+                                <option value="gain">Gain Weight (+500 cal)</option>
+                            </select>
+                            <div class="error-message" id="goal-error">Please select your fitness goal</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="meal-count">Meals Per Day</label>
+                            <select id="meal-count" class="form-control">
+                                <option value="3">3 Meals (Breakfast, Lunch, Dinner)</option>
+                                <option value="4">4 Meals (+ Afternoon Snack)</option>
+                                <option value="5" selected>5 Meals (+ Morning & Afternoon Snack)</option>
+                                <option value="6">6 Meals (+ Evening Snack)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="schedule-toggle" id="schedule-toggle" tabindex="0" role="button">
+                                <span>⏰ Customize Meal Schedule</span>
+                                <span class="schedule-arrow" id="schedule-arrow">▾</span>
+                            </div>
+                            <div class="schedule-panel" id="schedule-panel">
+                                <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">Edit meal names and times for the selected meal count.</p>
+                                <div id="schedule-editor-grid"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="macro-split-toggle" id="macro-split-toggle" tabindex="0" role="button">
+                                <span>⚙️ Custom Macro Split</span>
+                                <span class="macro-split-arrow" id="macro-split-arrow">▾</span>
+                            </div>
+                            <div class="macro-split-panel" id="macro-split-panel">
+                                <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px;">Adjust your macro nutrient ratios. They will auto-adjust to sum to 100%.</p>
+                                <div class="macro-split-inputs">
+                                    <div class="macro-split-item">
+                                        <label>Protein %</label>
+                                        <input type="number" id="protein-pct" class="form-control" value="30" min="5" max="80">
+                                    </div>
+                                    <div class="macro-split-item">
+                                        <label>Carbs %</label>
+                                        <input type="number" id="carbs-pct" class="form-control" value="40" min="5" max="80">
+                                    </div>
+                                    <div class="macro-split-item">
+                                        <label>Fat %</label>
+                                        <input type="number" id="fat-pct" class="form-control" value="30" min="5" max="80">
+                                    </div>
+                                </div>
+                                <div class="macro-split-sum" id="macro-split-sum">Total: 100% ✅</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Diet Preference</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="veg" name="diet" value="veg">
+                                    <label for="veg">Vegetarian</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="nonveg" name="diet" value="nonveg">
+                                    <label for="nonveg">Non-Vegetarian</label>
+                                </div>
+                            </div>
+                            <div class="error-message" id="diet-error">Please select your diet preference</div>
+                        </div>
+                        <button class="btn btn-primary btn-calculate" id="calculate-btn">
+                            <span>Calculate My Plan</span>
+                            <span style="font-size:14px;">⚡</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                </div>
+
+                <div class="results" id="results">
+                    <div class="calorie-warning" id="calorie-warning" style="display:none;">
+                        <span>⚠️</span> Your calculated target is below 1200 cal. For safety, it has been set to the minimum recommended 1200 calories/day.
+                    </div>
+                    <div class="export-bar">
+                        <button class="export-btn" onclick="window.print()">🖨️ Print</button>
+                        <button class="export-btn" id="copy-summary-btn">📋 Copy Summary</button>
+                        <button class="export-btn" id="export-pdf-btn">📄 Export PDF</button>
+                        <button class="export-btn" id="micros-btn">🧪 Micros</button>
+                        <button class="export-btn" id="backup-btn">📥 Backup</button>
+                        <button class="export-btn" id="restore-btn">📤 Restore</button>
+                        <input type="file" id="import-file-input" accept=".json" style="display:none">
+                    </div>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-card-icon">🔥</div>
+                            <div class="result-card-value" id="bmr-value">0</div>
+                            <div class="result-card-label">BMR</div>
+                            <div class="result-card-sublabel">Basal Metabolic Rate</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-card-icon">⚡</div>
+                            <div class="result-card-value" id="tdee-value">0</div>
+                            <div class="result-card-label">TDEE</div>
+                            <div class="result-card-sublabel">Maintenance Calories</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-card-icon">🎯</div>
+                            <div class="result-card-value calories" id="target-calories">0</div>
+                            <div class="result-card-label">Target Calories</div>
+                            <div class="result-card-sublabel" id="goal-label">Daily Goal</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-card-icon">⚖️</div>
+                            <div class="result-card-value" id="bmi-value">0</div>
+                            <div class="result-card-label">BMI</div>
+                            <div class="result-card-sublabel" id="bmi-category">Category</div>
+                        </div>
+                    </div>
+
+                    <div class="macro-cards">
+                        <div class="macro-card">
+                            <div class="macro-icon protein">🥩</div>
+                            <div class="macro-info">
+                                <h4>Protein</h4>
+                                <div class="value" id="protein-value">0g</div>
+                                <div class="macro-bar"><div class="macro-fill protein-fill" id="protein-bar"></div></div>
+                            </div>
+                        </div>
+                        <div class="macro-card">
+                            <div class="macro-icon carbs">🍞</div>
+                            <div class="macro-info">
+                                <h4>Carbohydrates</h4>
+                                <div class="value" id="carbs-value">0g</div>
+                                <div class="macro-bar"><div class="macro-fill carbs-fill" id="carbs-bar"></div></div>
+                            </div>
+                        </div>
+                        <div class="macro-card">
+                            <div class="macro-icon fat">🫒</div>
+                            <div class="macro-info">
+                                <h4>Healthy Fats</h4>
+                                <div class="value" id="fat-value">0g</div>
+                                <div class="macro-bar"><div class="macro-fill fat-fill" id="fat-bar"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="water-card">
+                        <div class="water-icon">💧</div>
+                        <div class="water-info">
+                            <h4>Daily Water Intake</h4>
+                            <div class="value" id="water-value">0L</div>
+                            <p class="water-note">Based on your weight and activity level</p>
+                        </div>
+                    </div>
+                    <div class="micro-card" id="micro-card" style="display:none;">
+                        <div class="micro-header">
+                            <h4>🧪 Micronutrient Summary</h4>
+                            <button class="export-btn" id="close-micros-btn" style="padding:4px 12px;border:none;">✕</button>
+                        </div>
+                        <div class="micro-grid" id="micro-grid"></div>
+                    </div>
+                    <div class="water-tracker" id="water-tracker" style="display:none;">
+                        <div class="water-tracker-header">
+                            <h4>💧 Water Log</h4>
+                            <span id="water-logged-text">0 / 0 ml</span>
+                        </div>
+                        <div class="water-progress-container">
+                            <div class="water-progress-bar" id="water-progress-bar"></div>
+                        </div>
+                        <div class="water-glass-btns">
+                            <button class="water-glass-btn" id="water-add-100">🥤 100ml</button>
+                            <button class="water-glass-btn" id="water-add-200">🥛 200ml</button>
+                            <button class="water-glass-btn" id="water-add-330">🧴 330ml</button>
+                            <button class="water-glass-btn" id="water-add-500">🧊 500ml</button>
+                        </div>
+                        <button class="export-btn" id="water-reset" style="margin-top:12px;width:100%;">↺ Reset Today</button>
+                    </div>
+
+                    <div class="exercise-card" id="exercise-card" style="display:none;">
+                        <div class="exercise-toggle" id="exercise-toggle" tabindex="0" role="button">
+                            <span>🏋️ Exercise Log</span>
+                            <span style="font-size:14px;color:var(--text-secondary);" id="exercise-summary">0 cal burned today</span>
+                            <span class="schedule-arrow" id="exercise-arrow">▾</span>
+                        </div>
+                        <div class="exercise-panel" id="exercise-panel">
+                            <div class="exercise-inputs">
+                                <div style="flex:1;">
+                                    <label style="font-size:12px;color:var(--text-secondary);">Exercise</label>
+                                    <input type="text" id="exercise-type" class="form-control" placeholder="e.g. Running" style="padding:10px 12px;">
+                                </div>
+                                <div style="width:100px;">
+                                    <label style="font-size:12px;color:var(--text-secondary);">Minutes</label>
+                                    <input type="number" id="exercise-duration" class="form-control" placeholder="30" style="padding:10px 12px;" min="1" max="600">
+                                </div>
+                                <div style="width:120px;">
+                                    <label style="font-size:12px;color:var(--text-secondary);">Calories</label>
+                                    <input type="number" id="exercise-calories" class="form-control" placeholder="e.g. 300" style="padding:10px 12px;" min="1" max="5000">
+                                </div>
+                                <div style="display:flex;align-items:flex-end;gap:8px;">
+                                    <button class="btn btn-primary" id="exercise-log-btn" style="padding:10px 20px;font-size:13px;">➕ Log</button>
+                                </div>
+                            </div>
+                            <div id="exercise-list"></div>
+                            <div class="exercise-total" id="exercise-total">
+                                <strong>Total burned:</strong> <span id="exercise-total-cal">0</span> kcal &nbsp;|&nbsp;
+                                <strong>Adjusted TDEE:</strong> <span id="adjusted-tdee">0</span> kcal
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diet-plan-choice" id="diet-plan-choice">
+                        <div class="diet-plan-choice-header">
+                            <h3>🍽️ Choose Your Diet Plan</h3>
+                            <p>Select how you want to generate your meal plan</p>
+                        </div>
+                        <div class="diet-plan-options">
+                            <div class="diet-plan-option" role="button" tabindex="0" id="diet-plan-default">
+                                <div class="diet-plan-icon">📋</div>
+                                <div class="diet-plan-info">
+                                    <div class="diet-plan-name">Default Plan</div>
+                                    <div class="diet-plan-desc">Standard diet based on your calorie target</div>
+                                </div>
+                                <div class="diet-plan-check">✓</div>
+                            </div>
+                            <div class="diet-plan-option" role="button" tabindex="0" id="diet-plan-custom">
+                                <div class="diet-plan-icon">✏️</div>
+                                <div class="diet-plan-info">
+                                    <div class="diet-plan-name">Custom Plan</div>
+                                    <div class="diet-plan-desc">Choose your own foods per meal from our database</div>
+                                </div>
+                                <div class="diet-plan-check">✓</div>
+                            </div>
+                            <div class="diet-plan-option" role="button" tabindex="0" id="diet-plan-weekly">
+                                <div class="diet-plan-icon">📅</div>
+                                <div class="diet-plan-info">
+                                    <div class="diet-plan-name">Weekly Plan</div>
+                                    <div class="diet-plan-desc">7-day varied meal plan with different foods each day</div>
+                                </div>
+                                <div class="diet-plan-check">✓</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="food-selection-panel" id="food-selection-panel">
+                        <div class="food-selection-header">
+                            <h4>🍽️ Select Your Foods</h4>
+                            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                                <button class="export-btn" id="add-custom-food-btn" style="border-color:var(--accent);color:var(--accent);">➕ Add Food</button>
+                                <button class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;" id="apply-custom-diet-btn">Apply Custom Diet</button>
+                            </div>
+                        </div>
+
+                        <div class="add-food-form" id="add-food-form">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                                <h4 style="font-size:16px;">✏️ Add Custom Food</h4>
+                                <button class="export-btn" id="cancel-custom-food" style="padding:4px 12px;">✕</button>
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                                <div class="form-group" style="grid-column:1/-1;margin-bottom:0;">
+                                    <label for="custom-food-name">Food Name</label>
+                                    <input type="text" id="custom-food-name" class="form-control" placeholder="e.g. Chicken Breast">
+                                </div>
+                                <div class="form-group" style="margin-bottom:0;">
+                                    <label for="custom-food-calories">Calories (per 100g)</label>
+                                    <input type="number" id="custom-food-calories" class="form-control" placeholder="e.g. 165" step="0.1">
+                                </div>
+                                <div class="form-group" style="margin-bottom:0;">
+                                    <label for="custom-food-protein">Protein (g)</label>
+                                    <input type="number" id="custom-food-protein" class="form-control" placeholder="e.g. 31" step="0.1">
+                                </div>
+                                <div class="form-group" style="margin-bottom:0;">
+                                    <label for="custom-food-carbs">Carbs (g)</label>
+                                    <input type="number" id="custom-food-carbs" class="form-control" placeholder="e.g. 0" step="0.1">
+                                </div>
+                                <div class="form-group" style="margin-bottom:0;">
+                                    <label for="custom-food-fat">Fat (g)</label>
+                                    <input type="number" id="custom-food-fat" class="form-control" placeholder="e.g. 3.6" step="0.1">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" style="margin-top:16px;padding:12px 24px;" id="save-custom-food">💾 Save Food</button>
+                        </div>
+                        <div class="meal-assignment-tabs" id="meal-tabs"></div>
+                        <div class="food-search">
+                            <input type="text" id="food-search" placeholder="Search foods...">
+                        </div>
+                        <div class="food-category-filters">
+                            <button class="food-category-btn active" data-category="all" id="food-category-all">All</button>
+                            <button class="food-category-btn" data-category="protein" id="food-category-protein">🥩 Protein</button>
+                            <button class="food-category-btn" data-category="carbs" id="food-category-carbs">🍚 Carbs</button>
+                            <button class="food-category-btn" data-category="fats" id="food-category-fats">🥑 Fats</button>
+                            <button class="food-category-btn" data-category="vegetables" id="food-category-vegetables">🥦 Vegetables</button>
+                            <button class="food-category-btn" data-category="fruits" id="food-category-fruits">🍎 Fruits</button>
+                            <button class="food-category-btn" data-category="dairy" id="food-category-dairy">🧀 Dairy</button>
+                            <button class="food-category-btn" data-category="custom" id="food-category-custom">⭐ Custom</button>
+                            <button class="food-category-btn" data-category="api" id="food-category-api">🌐 API</button>
+                        </div>
+                        <div class="food-grid" id="food-grid"></div>
+                        <div class="macro-balancer-container" id="macro-balancer-container" style="display:none;">
+                            <h5 style="font-size:14px;margin-bottom:10px;color:var(--accent);">🎯 Macro Balance</h5>
+                            <div class="macro-balancer-chart">
+                                <canvas id="macro-balancer-canvas" width="200" height="200"></canvas>
+                                <div class="macro-balancer-center" id="macro-balancer-center">
+                                    <span id="macro-balancer-pct">0%</span>
+                                    <small>of target</small>
+                                </div>
+                            </div>
+                            <div class="macro-balancer-legend" id="macro-balancer-legend"></div>
+                        </div>
+                        <div class="selected-foods-section">
+                            <div class="selected-foods-title">✅ Foods for <span id="current-meal-label">Breakfast</span></div>
+                            <div class="selected-foods-list" id="selected-foods-list"></div>
+                            <div class="food-selection-note">Click a food to add it to the current meal tab. Foods are assigned per meal.</div>
+                        </div>
+                    </div>
+
+                    <div class="diet-chart" id="diet-table">
+                        <div class="diet-chart-header">
+                            <h3>🍽️ Your Daily Diet Chart</h3>
+                            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <div class="goal-badge" id="goal-badge">
+                                <span>🎯</span>
+                                <span id="goal-text">Lose Weight</span>
+                            </div>
+                            <div class="goal-badge" id="diet-badge" style="background: linear-gradient(135deg, #9C27B0, #E91E63);">
+                                <span>🥗</span>
+                                <span id="diet-text">Vegetarian</span>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="week-tabs" id="week-tabs" style="display:none;" role="tablist">
+                            <button class="day-tab active" data-day="0" id="day-tab-0" role="tab" aria-selected="true">Mon</button>
+                            <button class="day-tab" data-day="1" id="day-tab-1" role="tab" aria-selected="false">Tue</button>
+                            <button class="day-tab" data-day="2" id="day-tab-2" role="tab" aria-selected="false">Wed</button>
+                            <button class="day-tab" data-day="3" id="day-tab-3" role="tab" aria-selected="false">Thu</button>
+                            <button class="day-tab" data-day="4" id="day-tab-4" role="tab" aria-selected="false">Fri</button>
+                            <button class="day-tab" data-day="5" id="day-tab-5" role="tab" aria-selected="false">Sat</button>
+                            <button class="day-tab" data-day="6" id="day-tab-6" role="tab" aria-selected="false">Sun</button>
+                            <button class="day-tab regenerate-btn" id="regenerate-day-btn" aria-label="Regenerate current day">↻</button>
+                        </div>
+                        <div class="diet-chart-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Meal</th>
+                                        <th>Food Items</th>
+                                        <th>Calories</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="diet-chart-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About FitPulse</h2>
+                <p class="section-subtitle">The science behind your personalized nutrition plan</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🧬</div>
+                    <h3>Mifflin-St Jeor Equation</h3>
+                    <p>FitPulse uses the Mifflin-St Jeor equation, widely regarded as the most accurate formula for estimating Basal Metabolic Rate (BMR). It calculates the calories your body needs at complete rest based on your weight, height, age, and sex.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📊</div>
+                    <h3>Understanding Your Numbers</h3>
+                    <p><strong>BMR</strong> is your resting calorie burn. <strong>TDEE</strong> multiplies BMR by your activity level. <strong>Target Calories</strong> adjusts TDEE based on your goal — deficit for weight loss, surplus for muscle gain. <strong>BMI</strong> indicates your weight category relative to height.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🍽️</div>
+                    <h3>Macro Distribution</h3>
+                    <p>Our diet plans follow a balanced 30% protein, 40% carbohydrates, and 30% fat split. This distribution supports muscle maintenance, sustained energy, and healthy hormone function across most fitness goals.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💡</div>
+                    <h3>Tips for Success</h3>
+                    <p>Consistency beats perfection. Track your intake for at least 2 weeks before adjusting. Stay hydrated, prioritize sleep, and remember — these are estimates. Consult a nutritionist for personalized medical advice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="history-section" id="history">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Your Progress</h2>
+                <p class="section-subtitle">Track your fitness journey over time</p>
+            </div>
+            <div class="progress-dashboard" id="progress-dashboard" style="display:none;">
+                <div class="progress-toggle" id="progress-toggle" tabindex="0" role="button">
+                    <span>📊 Goal Progress Dashboard</span>
+                    <span id="progress-summary" style="font-size:14px;color:var(--text-secondary);">Log your daily intake to see progress</span>
+                    <span class="schedule-arrow" id="progress-arrow">▾</span>
+                </div>
+                <div class="progress-panel" id="progress-panel">
+                    <div class="intake-inputs">
+                        <div>
+                            <label style="font-size:12px;color:var(--text-secondary);">🔥 Calories</label>
+                            <input type="number" id="intake-calories" class="form-control" placeholder="e.g. 2000" style="padding:10px 12px;">
+                        </div>
+                        <div>
+                            <label style="font-size:12px;color:var(--text-secondary);">🥩 Protein (g)</label>
+                            <input type="number" id="intake-protein" class="form-control" placeholder="e.g. 150" style="padding:10px 12px;">
+                        </div>
+                        <div>
+                            <label style="font-size:12px;color:var(--text-secondary);">🍚 Carbs (g)</label>
+                            <input type="number" id="intake-carbs" class="form-control" placeholder="e.g. 200" style="padding:10px 12px;">
+                        </div>
+                        <div>
+                            <label style="font-size:12px;color:var(--text-secondary);">🥑 Fat (g)</label>
+                            <input type="number" id="intake-fat" class="form-control" placeholder="e.g. 65" style="padding:10px 12px;">
+                        </div>
+                        <div style="display:flex;align-items:flex-end;">
+                            <button class="btn btn-primary" id="log-intake-btn" style="padding:10px 20px;font-size:13px;">📝 Log Day</button>
+                        </div>
+                    </div>
+                    <div class="progress-chart-container">
+                        <canvas id="progress-chart" width="700" height="220"></canvas>
+                        <div class="progress-chart-empty" id="progress-chart-empty">Log your daily intake to see your progress chart.</div>
+                    </div>
+                    <div id="intake-log-list"></div>
+                </div>
+            </div>
+            <div class="weight-logger">
+                <div class="weight-logger-input">
+                    <label for="weight-log-input">Log Your Weight (kg)</label>
+                    <div style="display:flex;gap:10px;">
+                        <input type="number" id="weight-log-input" class="form-control" placeholder="Enter weight" step="0.1" min="30" max="300" style="max-width:200px;">
+                        <button class="btn btn-primary" id="log-weight-btn" style="padding:12px 24px;">📝 Log</button>
+                    </div>
+                </div>
+                <div class="weight-chart-container" id="weight-chart-container">
+                    <canvas id="weight-chart" width="700" height="250"></canvas>
+                    <div class="weight-chart-empty" id="weight-chart-empty">Log your weight to see your progress chart.</div>
+                </div>
+            </div>
+            <div class="history-list" id="history-list">
+                <p class="history-empty">No calculations yet. Complete the calculator above to start tracking your progress.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">FitPulse © 2026</div>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">▶️</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Food Preference Modal -->
+    <div class="quantity-modal-overlay" id="pref-modal-overlay"></div>
+    <div class="quantity-modal" id="pref-modal" style="max-width:700px;max-height:90vh;overflow-y:auto;">
+        <div class="quantity-modal-header">
+            <h4>🥗 Select Your Preferred Foods</h4>
+            <button class="export-btn" id="close-pref-btn" style="padding:4px 12px;border:none;">✕</button>
+        </div>
+        <div class="quantity-modal-body">
+            <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Pick foods you like from each category. The diet plan will be built around your choices. Select at least one per category.</p>
+            <div id="food-preference-grid"></div>
+        </div>
+        <div class="quantity-modal-footer" style="justify-content:space-between;">
+            <button class="export-btn" id="skip-preferences">⏭️ Skip & Use Default</button>
+            <button class="btn btn-primary" id="confirm-preferences" style="padding:12px 28px;">✅ Generate My Diet Plan</button>
+        </div>
+    </div>
+    
+    <!-- Shopping List Modal -->
+    <div class="quantity-modal-overlay" id="shopping-modal-overlay"></div>
+    <div class="quantity-modal" id="shopping-modal" style="max-width:650px;">
+        <div class="quantity-modal-header">
+            <h4>🛒 Shopping List</h4>
+            <button class="export-btn" id="close-shopping-btn" style="padding:4px 12px;border:none;">✕</button>
+        </div>
+        <div class="quantity-modal-body">
+            <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">Consolidated list of all ingredients from your diet plan.</p>
+            <div class="shopping-scale-bar" id="shopping-scale-bar">
+                <div class="shopping-scale-header">
+                    <span>🔁 Portion Scale</span>
+                    <span class="shopping-scale-value" id="shopping-scale-value">1.0x</span>
+                </div>
+                <input type="range" id="shopping-scale-slider" class="shopping-scale-slider" min="50" max="300" value="100">
+                <div class="shopping-scale-marks">
+                    <span>0.5x</span>
+                    <span>1.0x</span>
+                    <span>2.0x</span>
+                    <span>3.0x</span>
+                </div>
+            </div>
+            <div id="shopping-list-items"></div>
+            <div class="shopping-summary" id="shopping-summary"></div>
+        </div>
+        <div class="quantity-modal-footer">
+            <button class="export-btn" id="close-shopping-footer-btn">Close</button>
+            <button class="export-btn" id="copy-shopping-list">📋 Copy List</button>
+            <button class="btn btn-primary" id="clear-shopping-checks" style="padding:12px 28px;">✕ Clear Checks</button>
+        </div>
+    </div>
+    
+    <div class="quantity-modal-overlay" id="quantity-modal-overlay"></div>
+    <div class="quantity-modal" id="quantity-modal">
+        <div class="quantity-modal-header">
+            <h4 id="quantity-food-name">Food</h4>
+            <button class="export-btn" id="close-qty-btn" style="padding:4px 12px;border:none;">✕</button>
+        </div>
+        <div class="quantity-modal-body">
+            <div class="quantity-display">
+                <span id="quantity-grams-display">100</span><span style="color:var(--text-secondary);font-size:16px;">g</span>
+            </div>
+            <input type="range" id="quantity-slider" class="qty-range" min="10" max="300" value="100" step="5">
+            <div class="quantity-marks">
+                <span>10g</span><span>100g</span><span>200g</span><span>300g</span>
+            </div>
+            <div class="quantity-nutrition-preview">
+                <div class="preview-item"><span class="preview-label">🔥 Calories</span><span class="preview-value" id="preview-calories">0</span></div>
+                <div class="preview-item"><span class="preview-label">🥩 Protein</span><span class="preview-value" id="preview-protein">0g</span></div>
+                <div class="preview-item"><span class="preview-label">🍚 Carbs</span><span class="preview-value" id="preview-carbs">0g</span></div>
+                <div class="preview-item"><span class="preview-label">🥑 Fat</span><span class="preview-value" id="preview-fat">0g</span></div>
+            </div>
+        </div>
+        <div class="quantity-modal-footer">
+            <button class="export-btn" id="cancel-qty-btn">Cancel</button>
+            <button class="btn btn-primary" id="confirm-qty-btn" style="padding:12px 28px;">✅ Add to Meal</button>
+        </div>
+    </div>
+    
+    <!-- Recipe Modal -->
+    <div class="quantity-modal-overlay" id="recipe-modal-overlay"></div>
+    <div class="quantity-modal" id="recipe-modal" style="max-width:550px;">
+        <div class="quantity-modal-header">
+            <h4 id="recipe-modal-title">📖 Recipe</h4>
+            <button class="export-btn" id="close-recipe-btn" style="padding:4px 12px;border:none;">✕</button>
+        </div>
+        <div class="quantity-modal-body" id="recipe-modal-body">
+            <div id="recipe-content"></div>
+        </div>
+        <div class="quantity-modal-footer">
+            <button class="export-btn" id="print-recipe-btn">🖨️ Print</button>
+            <button class="btn btn-primary" id="close-recipe-footer-btn" style="padding:12px 28px;">Close</button>
+    </div>
+
+    <script src="js/database.js?v=3"></script>
+    <script src="js/calculator.js?v=3"></script>
+    <script src="js/charts.js?v=3"></script>
+    <script src="js/api.js?v=3"></script>
+    <script src="js/ui.js?v=3"></script>
+    <script src="js/app.js?v=3"></script>
+</body>
+</html>
