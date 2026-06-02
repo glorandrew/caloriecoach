@@ -1,24 +1,33 @@
 // ====== localStorage Migration ======
 (function() {
-    var oldPrefix = 'fitpulse-';
-    var newPrefix = 'caloriecoach-';
-    var migrated = localStorage.getItem(newPrefix + 'migrated');
-    if (migrated) return;
-    var keys = [
-        'history', 'theme', 'food-prefs', 'macro-split', 'water',
-        'weight-logs', 'shopping-checks', 'custom-foods', 'api-cache',
-        'meal-schedule', 'exercise', 'intake-logs', 'last-target',
-        'food-db-cache', 'food-db-ts'
-    ];
-    for (var i = 0; i < keys.length; i++) {
-        var oldVal = localStorage.getItem(oldPrefix + keys[i]);
-        if (oldVal !== null) {
-            localStorage.setItem(newPrefix + keys[i], oldVal);
-            localStorage.removeItem(oldPrefix + keys[i]);
+    try {
+        var oldPrefix = 'fitpulse-';
+        var newPrefix = 'caloriecoach-';
+        var migrated = localStorage.getItem(newPrefix + 'migrated');
+        if (migrated) return;
+        var keys = [
+            'history', 'theme', 'food-prefs', 'macro-split', 'water',
+            'weight-logs', 'shopping-checks', 'custom-foods', 'api-cache',
+            'meal-schedule', 'exercise', 'intake-logs', 'last-target',
+            'food-db-cache', 'food-db-ts'
+        ];
+        for (var i = 0; i < keys.length; i++) {
+            var oldVal = localStorage.getItem(oldPrefix + keys[i]);
+            if (oldVal !== null) {
+                localStorage.setItem(newPrefix + keys[i], oldVal);
+                localStorage.removeItem(oldPrefix + keys[i]);
+            }
         }
-    }
-    localStorage.setItem(newPrefix + 'migrated', '1');
+        localStorage.setItem(newPrefix + 'migrated', '1');
+    } catch(e) {}
 })();
+
+function lsGet(key, def) {
+    try { var v = localStorage.getItem(key); return v !== null ? v : def; } catch(e) { return def; }
+}
+function lsSet(key, val) {
+    try { localStorage.setItem(key, val); } catch(e) {}
+}
 
 // ====== Focus Trap & A11y Utilities ======
 let lastFocusedEl = null;
@@ -97,7 +106,7 @@ function closeModal(id) {
     const themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) return;
 
-    const savedTheme = localStorage.getItem('caloriecoach-theme') || 'dark';
+    const savedTheme = lsGet('caloriecoach-theme', 'dark');
     document.documentElement.setAttribute('data-theme', savedTheme);
     themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
     themeToggle.setAttribute('aria-label', `Toggle ${savedTheme === 'dark' ? 'light' : 'dark'} theme`);
@@ -106,7 +115,7 @@ function closeModal(id) {
         const current = document.documentElement.getAttribute('data-theme');
         const next = current === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('caloriecoach-theme', next);
+        lsSet('caloriecoach-theme', next);
         themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
         themeToggle.setAttribute('aria-label', `Toggle ${next === 'dark' ? 'light' : 'dark'} theme`);
     });
